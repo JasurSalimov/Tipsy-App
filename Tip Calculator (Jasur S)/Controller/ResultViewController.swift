@@ -8,7 +8,11 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-
+    @IBOutlet weak var billTotal: UILabel!
+    @IBOutlet weak var textWithInfo: UILabel!
+    @IBAction func recalculatePressed(_ sender: UIButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -9,6 +9,26 @@ import UIKit
 
 class CalculateViewController: UIViewController {
 
+    @IBOutlet weak var billChanged: UITextField!
+    @IBOutlet weak var zeroButton: UIButton!
+    @IBOutlet weak var tenButton: UIButton!
+    @IBOutlet weak var twentyButton: UIButton!
+    @IBOutlet weak var personCount: UIStepper!
+    
+    @IBAction func tipChanged(_ sender: UIButton) {
+    
+    
+    }
+    @IBAction func personCountChange(_ sender: UIStepper) {
+        
+    }
+    
+   
+    @IBAction func calculatePressed(_ sender: UIButton) {
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
