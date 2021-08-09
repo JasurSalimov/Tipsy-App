@@ -13,6 +13,8 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var textWithInfo: UILabel!
     var tipBrainR = TipBrain()
     var totalPerPerson: String?
+    var percentage: String?
+    var pAmount: String?
     @IBAction func recalculatePressed(_ sender: UIButton) {
     
         self.dismiss(animated: true, completion: nil)    // to dissmiss newViewController
@@ -25,6 +27,9 @@ class ResultViewController: UIViewController {
         recalculateButton.layer.borderColor = UIColor.black.cgColor
         
         billTotal.text = totalPerPerson ?? "no value"
+        textWithInfo.text = "Split between \(pAmount ?? "no value" ) people, with \(percentage ?? "no value") tip."
+        
+           
         // Do any additional setup after loading the view.
     }
     

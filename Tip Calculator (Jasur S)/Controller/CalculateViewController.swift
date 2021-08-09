@@ -22,11 +22,12 @@ class CalculateViewController: UIViewController {
         tenButton.isSelected = false
         twentyButton.isSelected = false
         sender.isSelected = true
+        tipBrain.tipSet(tipAmount: sender.currentTitle ?? "0%")
     
     }
     @IBAction func personCountChange(_ sender: UIStepper) {
         tipBrain.splitSet(split: Int(sender.value))
-        countLabel.text = String(sender.value)
+        countLabel.text = String(round(10*sender.value)/10)
         
     }
     
@@ -57,7 +58,8 @@ class CalculateViewController: UIViewController {
             if (segue.identifier == "Result"){
                 let destinationVC = segue.destination as! ResultViewController
                 destinationVC.totalPerPerson = String(round(10*tipBrain.finalCalculate())/10)
-                
+                destinationVC.pAmount = String("\(tipBrain.splitAmount)")
+                destinationVC.percentage = String("\(tipBrain.tipPercentage)%")
                 
             }
     }

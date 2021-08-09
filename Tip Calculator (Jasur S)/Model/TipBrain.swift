@@ -15,11 +15,25 @@ struct TipBrain{
     var splitAmount: Int = 0
     var forCalc: Double = 0
     
-    mutating func tipSet(tipAmount: Int){
-        self.tipPercentage = tipAmount
+    mutating func tipSet(tipAmount: String){
+        switch tipAmount{
+        case "0%":
+            self.tipPercentage = 0
+            break;
+        case "10%":
+            self.tipPercentage = 10
+            break;
+        case "20%":
+            self.tipPercentage = 20
+            break;
+        default:
+            break;
+        }
+        
+       
     }
     mutating func totalSet(bill: String){
-        if(bill != nil){
+        if(bill != ""){
             let double = NumberFormatter().number(from: bill)?.doubleValue
         self.totalBill = double!
         }
@@ -43,8 +57,9 @@ struct TipBrain{
         default:
             break;
         }
-        
-        return forCalc
+        print(splitAmount)
+        print(forCalc)
+        return forCalc/Double(splitAmount)
         
     }
     
