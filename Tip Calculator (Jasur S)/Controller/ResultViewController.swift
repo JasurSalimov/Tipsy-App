@@ -9,13 +9,22 @@ import UIKit
 
 class ResultViewController: UIViewController {
     @IBOutlet weak var billTotal: UILabel!
+    @IBOutlet weak var recalculateButton: UIButton!
     @IBOutlet weak var textWithInfo: UILabel!
+    var tipBrainR = TipBrain()
+    var totalPerPerson: String?
     @IBAction func recalculatePressed(_ sender: UIButton) {
+    
+        self.dismiss(animated: true, completion: nil)    // to dissmiss newViewController
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        recalculateButton.layer.cornerRadius = 10
+        recalculateButton.layer.borderColor = UIColor.black.cgColor
+        
+        billTotal.text = totalPerPerson ?? "no value"
         // Do any additional setup after loading the view.
     }
     

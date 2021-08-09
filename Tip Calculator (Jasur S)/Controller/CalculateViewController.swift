@@ -14,17 +14,28 @@ class CalculateViewController: UIViewController {
     @IBOutlet weak var tenButton: UIButton!
     @IBOutlet weak var twentyButton: UIButton!
     @IBOutlet weak var personCount: UIStepper!
-    
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var calculateButton: UIButton!
+    var tipBrain = TipBrain()
     @IBAction func tipChanged(_ sender: UIButton) {
-    
+        zeroButton.isSelected = false
+        tenButton.isSelected = false
+        twentyButton.isSelected = false
+        sender.isSelected = true
     
     }
     @IBAction func personCountChange(_ sender: UIStepper) {
+        tipBrain.splitSet(split: Int(sender.value))
+        countLabel.text = String(sender.value)
         
     }
     
    
     @IBAction func calculatePressed(_ sender: UIButton) {
+        tipBrain.totalSet(bill: billChanged.text!)
+        self.performSegue(withIdentifier: "Result", sender: self)
+        
+        
     }
     
     
@@ -32,20 +43,24 @@ class CalculateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-         button.backgroundColor = .clear
-         button.layer.cornerRadius = 5
-         button.layer.borderWidth = 1
-         button.layer.borderColor = UIColor.black.cgColor
-         */
+        //two lines of code to make button little bit rounded
+         calculateButton.layer.cornerRadius = 10
+         calculateButton.layer.borderColor = UIColor.black.cgColor
+         
         
         
         
 
         // Do any additional setup after loading the view.
     }
-    
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if (segue.identifier == "Result"){
+                let destinationVC = segue.destination as! ResultViewController
+                destinationVC.totalPerPerson = String(round(10*tipBrain.finalCalculate())/10)
+                
+                
+            }
+    }
     /*
     // MARK: - Navigation
 
