@@ -160,6 +160,9 @@
                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="billEntered:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="s3b-LD-3tU"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter bill total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDh-pD-aFV">
                                 <rect key="frame" x="60" y="44" width="198" height="47"/>

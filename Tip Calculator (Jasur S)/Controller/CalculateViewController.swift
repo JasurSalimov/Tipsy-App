@@ -7,14 +7,24 @@
 
 import UIKit
 
-class CalculateViewController: UIViewController {
-
+class CalculateViewController: UIViewController, UITextFieldDelegate {
+    
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        
+        
+    }
+    
     @IBOutlet weak var billChanged: UITextField!
     @IBOutlet weak var zeroButton: UIButton!
     @IBOutlet weak var tenButton: UIButton!
     @IBOutlet weak var twentyButton: UIButton!
     @IBOutlet weak var personCount: UIStepper!
     @IBOutlet weak var countLabel: UILabel!
+    @IBAction func billEntered(_ sender: UITextField) {
+        billChanged.text = sender.text ?? "0.0"
+    }
     @IBOutlet weak var calculateButton: UIButton!
     var tipBrain = TipBrain()
     @IBAction func tipChanged(_ sender: UIButton) {
@@ -47,7 +57,8 @@ class CalculateViewController: UIViewController {
         //two lines of code to make button little bit rounded
          calculateButton.layer.cornerRadius = 10
          calculateButton.layer.borderColor = UIColor.black.cgColor
-         
+         self.billChanged.delegate = self
+      
         
         
         
@@ -60,7 +71,7 @@ class CalculateViewController: UIViewController {
                 destinationVC.totalPerPerson = String(round(10*tipBrain.finalCalculate())/10)
                 destinationVC.pAmount = String("\(tipBrain.splitAmount)")
                 destinationVC.percentage = String("\(tipBrain.tipPercentage)%")
-                
+               
             }
     }
     /*
