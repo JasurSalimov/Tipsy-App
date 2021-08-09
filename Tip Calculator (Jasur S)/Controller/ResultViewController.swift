@@ -1,26 +1,16 @@
 //
-//  ViewController.swift
+//  ResultViewController.swift
 //  Tip Calculator (Jasur S)
 //
-//  Created by Jasur Salimov on 8/8/21.
+//  Created by Jasur Salimov on 8/9/21.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /*
-         button.backgroundColor = .clear
-         button.layer.cornerRadius = 5
-         button.layer.borderWidth = 1
-         button.layer.borderColor = UIColor.black.cgColor
-         */
-        
-        
-        
 
         // Do any additional setup after loading the view.
     }
